@@ -31,7 +31,7 @@
 			console.log('safari play');
 			navigator.mediaSession.coordinator.play();
 			let playbackstate =  player.paused()?'paused':'playing';
-			navigator.mediaSession.playbackState = playbackState;			
+			navigator.mediaSession.playbackState = playbackstate;			
 		}
 	});
 	
@@ -40,7 +40,7 @@
 			console.log('safari pause')
 			navigator.mediaSession.coordinator.pause();
 			let playbackstate =  player.paused()?'paused':'playing';
-			navigator.mediaSession.playbackState = playbackState;
+			navigator.mediaSession.playbackState = playbackstate;
 		}
 	});
 	
