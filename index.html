@@ -84,9 +84,10 @@
 			
 		navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
 			if (coordinator){
-				console.log('coordinatorchange');
+				console.log('coordinatorchange',coordinator.state);
 				if (coordinator.state == "waiting"){					
-					coordinator.join();
+					coordinator.join();									
+				}else if (coordinator.state == "joined"){				
 					coordinator.setTrack('test');					
 				}				
 			}
