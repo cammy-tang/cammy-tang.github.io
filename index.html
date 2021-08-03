@@ -118,6 +118,19 @@
 					coordinator.setTrack('test');					
 				}	
 		}
+		
+		navigator.mediaSession.addEventListener('coordinatorchange', coordinator => {
+			if (coordinator){
+				console.log('4.mediaSession.coordinatorchange',coordinator.state);
+				if (coordinator.state == "waiting"){					
+					coordinator.join();									
+				}else if (coordinator.state == "joined"){				
+					coordinator.setTrack('test');					
+				}				
+			}
+				
+			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
+		});
 	}
 
 </script>
