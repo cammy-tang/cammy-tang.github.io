@@ -72,6 +72,11 @@
 	// Adopting Coordinator
 	if (navigator.mediaSession && navigator.mediaSession.coordinator) {
 		console.log('join coordinator');
+	if (coordinator){
+				console.log('coordinatorchange');
+				coordinator.identifier='test';
+				coordinator.join();
+			}
 		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
 			if (coordinator){
 				console.log('coordinatorchange');
