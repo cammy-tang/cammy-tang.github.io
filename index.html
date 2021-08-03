@@ -41,9 +41,12 @@
 			player.play();
 			console.log(details.trackIdentifier);
 		});
-		navigator.mediaSession.setActionHandler('pause', () =>{
+		navigator.mediaSession.setActionHandler('pause', (detail) =>{
 			player.pause();
 			console.log(details.trackIdentifier);
+		});
+		navigator.mediaSession.setActionHandler("settrack", details => {
+    			console.log('settrack action',details.trackIdentifier);
 		});
 		// navigator.mediaSession.setActionHandler('seekto', details => {
 		// 	video.currentTime = details.seekTime;
