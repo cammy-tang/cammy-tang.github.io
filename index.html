@@ -82,7 +82,7 @@
 		}
 		
 			
-		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
+		navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
 			if (coordinator){
 				console.log('coordinatorchange');
 				if (coordinator.state == "waiting"){					
