@@ -77,14 +77,16 @@
 	if (navigator.mediaSession && navigator.mediaSession.coordinator) {
 		console.log('join coordinator');	
 		if (navigator.mediaSession.coordinator.state == "waiting"){			
-			navigator.mediaSession.coordinator.join();	
-			navigator.mediaSession.coordinator.setTrack('test');
+			navigator.mediaSession.coordinator.join();
+			if (coordinator.state == "joined"){
+				navigator.mediaSession.coordinator.setTrack('test');
+			}
 		}
 		
 			
 		navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
 			if (coordinator){
-				console.log('coordinatorchange',coordinator.state);
+				console.log('1.coordinatorstatechange',coordinator.state);
 				if (coordinator.state == "waiting"){					
 					coordinator.join();									
 				}else if (coordinator.state == "joined"){				
@@ -94,6 +96,28 @@
 				
 			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
 		});
+		
+		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
+			if (coordinator){
+				console.log('2.coordinatorchange',coordinator.state);
+				if (coordinator.state == "waiting"){					
+					coordinator.join();									
+				}else if (coordinator.state == "joined"){				
+					coordinator.setTrack('test');					
+				}				
+			}
+				
+			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
+		});
+		
+		navigator.mediaSession.coordinator.oncoordinaorstatechange=(coordinator)=>{
+			console.log('3.oncoordinaorstatechange',coordinator.state);
+				if (coordinator.state == "waiting"){					
+					coordinator.join();									
+				}else if (coordinator.state == "joined"){				
+					coordinator.setTrack('test');					
+				}	
+		}
 	}
 
 </script>
