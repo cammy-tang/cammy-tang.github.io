@@ -117,11 +117,13 @@
 // 		});
 		
 		navigator.mediaSession.coordinator.oncoordinatorstatechange=(coordinator)=>{
-			console.log('3.oncoordinaorstatechange',coordinator.state);
-				if (coordinator.state == "waiting"){					
-					coordinator.join();									
-				}else if (coordinator.state == "joined"){				
-					coordinator.setTrack('test');					
+			console.log('3.oncoordinaorstatechange',coordinator);
+				if (navigator.mediaSession.coordinator.state == "waiting"){
+					console.log('3.join');
+					navigator.mediaSession.coordinator.join();									
+				}else if (navigator.mediaSession.coordinator.state == "joined"){
+					console.log('3.setTrack')
+					navigator.mediaSession.coordinator.setTrack('test');					
 				}	
 		}
 		
