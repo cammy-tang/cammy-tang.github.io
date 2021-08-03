@@ -75,15 +75,20 @@
 
 	// Adopting Coordinator
 	if (navigator.mediaSession && navigator.mediaSession.coordinator) {
-		console.log('join coordinator');				
-		//navigator.mediaSession.coordinator.identifier='test';
-		//navigator.mediaSession.coordinator.join();
+		console.log('join coordinator');	
+		if (navigator.mediaSession.coordinator.state == "waiting"){			
+			navigator.mediaSession.coordinator.join();	
+			navigator.mediaSession.coordinator.setTrack('test');
+		}
+		
 			
 		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
 			if (coordinator){
 				console.log('coordinatorchange');
-				coordinator.identifier='test';
-				coordinator.join();
+				if (coordinator.state == "waiting"){					
+					coordinator.join();
+					coordinator.setTrack('test');					
+				}				
 			}
 				
 			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
