@@ -114,7 +114,7 @@
 			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
 		});
 		
-		navigator.mediaSession.coordinator.oncoordinaorstatechange=(coordinator)=>{
+		navigator.mediaSession.coordinator.oncoordinatorstatechange=(coordinator)=>{
 			console.log('3.oncoordinaorstatechange',coordinator.state);
 				if (coordinator.state == "waiting"){					
 					coordinator.join();									
