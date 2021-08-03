@@ -91,9 +91,9 @@
 			if (coordinator){
 				console.log(navigator.mediaSession.coordinator);
 				console.log('1.coordinatorstatechange',coordinator.state);
-				if (coordinator.state == "waiting"){					
+				if (navigator.mediaSession.coordinator.state == "waiting"){					
 					coordinator.join();									
-				}else if (coordinator.state == "joined"){				
+				}else if (navigator.mediaSession.coordinator.state == "joined"){				
 					coordinator.setTrack('test');					
 				}				
 			}
