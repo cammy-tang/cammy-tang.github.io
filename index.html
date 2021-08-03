@@ -78,7 +78,7 @@
 		console.log('join coordinator');	
 		if (navigator.mediaSession.coordinator.state == "waiting"){			
 			navigator.mediaSession.coordinator.join();
-			if (coordinator.state == "joined"){
+			if (navigator.mediaSession.coordinator.state == "joined"){
 				navigator.mediaSession.coordinator.setTrack('test');
 			}
 		}
