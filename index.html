@@ -73,8 +73,12 @@
 	if (navigator.mediaSession && navigator.mediaSession.coordinator) {
 		console.log('join coordinator');
 		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
-			if (coordinator)
+			if (coordinator){
+				console.log('coordinatorchange');
+				coordinator.identifier='test';
 				coordinator.join();
+			}
+				
 			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
 		});
 	}
