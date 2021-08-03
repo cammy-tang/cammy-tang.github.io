@@ -35,8 +35,14 @@
 	// Add action handler for play, pause, seekto
 	if (navigator.mediaSession) {
 		console.log('setActionHandler');
-		navigator.mediaSession.setActionHandler('play', () => player.play());
-		navigator.mediaSession.setActionHandler('pause', () => player.pause());
+		navigator.mediaSession.setActionHandler('play', (details) => {
+			player.play();
+			console.log(details.trackIdentifier);
+		});
+		navigator.mediaSession.setActionHandler('pause', () =>{
+			player.pause();
+			console.log(details.trackIdentifier);
+		});
 		// navigator.mediaSession.setActionHandler('seekto', details => {
 		// 	video.currentTime = details.seekTime;
 		// })
