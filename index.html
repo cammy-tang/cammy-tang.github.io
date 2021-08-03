@@ -26,6 +26,24 @@
 <script>
 	var player = videojs('my-video', {autoplay: 'any'});
 	
+	player.on('play',()=>{
+		if (navigator.mediaSession && navigator.mediaSession.coordinator){
+			console.log('safari play');
+			navigator.mediaSession.coordinator.play();
+			let playbackstate =  player.paused()?'paused':'playing';
+			navigator.mediaSession.playbackState = playbackState;			
+		}
+	});
+	
+	player.on('pause',()=>{
+		if (navigator.mediaSession && navigator.mediaSession.coordinator){
+			console.log('safari pause')
+			navigator.mediaSession.coordinator.pause();
+			let playbackstate =  player.paused()?'paused':'playing';
+			navigator.mediaSession.playbackState = playbackState;
+		}
+	});
+	
 	console.log(navigator.mediaSession.coordinator.state);
 
 	if (navigator.mediaSession) {
