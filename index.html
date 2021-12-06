@@ -30,8 +30,8 @@
 		if (navigator.mediaSession && navigator.mediaSession.coordinator){
 			console.log('safari play');
 			navigator.mediaSession.coordinator.play();
-			let playbackstate =  player.paused()?'paused':'playing';
-			navigator.mediaSession.playbackState = playbackstate;			
+			// let playbackstate =  player.paused()?'paused':'playing';
+			// navigator.mediaSession.playbackState = playbackstate;
 		}
 	});
 	
@@ -39,8 +39,8 @@
 		if (navigator.mediaSession && navigator.mediaSession.coordinator){
 			console.log('safari pause')
 			navigator.mediaSession.coordinator.pause();
-			let playbackstate =  player.paused()?'paused':'playing';
-			navigator.mediaSession.playbackState = playbackstate;
+			// let playbackstate =  player.paused()?'paused':'playing';
+			// navigator.mediaSession.playbackState = playbackstate;
 		}
 	});
 	
