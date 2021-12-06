@@ -103,13 +103,13 @@
 	// Adopting Coordinator
 	if (navigator.mediaSession && navigator.mediaSession.coordinator) {
 		console.log(navigator.mediaSession.coordinator.state);
-		// console.log('join coordinator');
-		// if (navigator.mediaSession.coordinator.state == "waiting"){
-		// 	navigator.mediaSession.coordinator.join();
-		// 	if (navigator.mediaSession.coordinator.state == "joined"){
-		// 		navigator.mediaSession.coordinator.setTrack('test');
-		// 	}
-		// }
+		console.log('join coordinator');
+		if (navigator.mediaSession.coordinator.state == "waiting"){
+			navigator.mediaSession.coordinator.join();
+			if (navigator.mediaSession.coordinator.state == "joined"){
+				navigator.mediaSession.coordinator.setTrack('test');
+			}
+		}
 		
 			
 		// navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
@@ -145,10 +145,10 @@
 			console.log('3.oncoordinaorstatechange',coordinator);
 				if (navigator.mediaSession.coordinator.state == "waiting"){
 					console.log('3.join');
-					navigator.mediaSession.coordinator.join();									
+					navigator.mediaSession.coordinator.join();
 				}else if (navigator.mediaSession.coordinator.state == "joined"){
 					console.log('3.setTrack')
-					navigator.mediaSession.coordinator.setTrack('test');					
+					 navigator.mediaSession.coordinator.setTrack('test');
 				}	
 		}
 		
