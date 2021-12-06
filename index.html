@@ -109,21 +109,21 @@
 		}
 		
 			
-		navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
-			if (coordinator){
-				console.log(navigator.mediaSession.coordinator);
-				console.log('1.coordinatorstatechange',coordinator);
-				if (navigator.mediaSession.coordinator.state == "waiting"){	
-					console.log('join');
-					navigator.mediaSession.coordinator.join();									
-				}else if (navigator.mediaSession.coordinator.state == "joined"){
-					console.log('setTrack');
-					navigator.mediaSession.coordinator.setTrack('test');					
-				}				
-			}
-				
-			// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
-		});
+		// navigator.mediaSession.coordinator.addEventListener('coordinatorstatechange', coordinator => {
+		// 	if (coordinator){
+		// 		console.log(navigator.mediaSession.coordinator);
+		// 		console.log('1.coordinatorstatechange',coordinator);
+		// 		if (navigator.mediaSession.coordinator.state == "waiting"){
+		// 			console.log('join');
+		// 			navigator.mediaSession.coordinator.join();
+		// 		}else if (navigator.mediaSession.coordinator.state == "joined"){
+		// 			console.log('setTrack');
+		// 			navigator.mediaSession.coordinator.setTrack('test');
+		// 		}
+		// 	}
+		//
+		// 	// controls.inSessionIcon.style.hidden = !coordinator;// 在控件中显示一个图标
+		// });
 		
 // 		navigator.mediaSession.coordinator.addEventListener('coordinatorchange', coordinator => {
 // 			if (coordinator){
