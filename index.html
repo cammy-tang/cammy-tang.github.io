@@ -38,7 +38,7 @@
 	player.on('pause',()=>{
 		if (navigator.mediaSession && navigator.mediaSession.coordinator){
 			console.log('safari pause')
-			// navigator.mediaSession.coordinator.pause();
+			navigator.mediaSession.coordinator.pause();
 			let playbackstate =  player.paused()?'paused':'playing';
 			navigator.mediaSession.playbackState = playbackstate;
 		}
@@ -62,7 +62,7 @@
 		});
 		navigator.mediaSession.setActionHandler('pause', (detail) =>{
 			console.log('action pause from coordinator');
-			//player.pause();
+			player.pause();
 			//console.log(details.trackIdentifier);
 		});
 		navigator.mediaSession.setActionHandler("settrack", details => {
@@ -97,6 +97,7 @@
 	if (navigator.mediaSession) {
 		navigator.mediaSession.metadata = new MediaMetadata({
 			title: 'cammytest',//artwork:[{src: myPlayer.artworkURL}]
+			trackIdentifier:'test',
 		});
 	}
 
