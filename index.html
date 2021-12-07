@@ -28,10 +28,11 @@
 <script>
 	var player = videojs('my-video', {autoplay: 'any'});
 
-	$('.vhs-paused').onclick(() => {
+	$('.vjs-paused').onclick(() => {
 		if (navigator.mediaSession && navigator.mediaSession.coordinator && navigator.mediaSession.coordinator.state == 'joined') {
 			console.log('safari play');
 			navigator.mediaSession.coordinator.play();
+			$(this).stopPropagation();
 			// let playbackstate =  player.paused()?'paused':'playing';
 			// navigator.mediaSession.playbackState = playbackstate;
 		}
@@ -40,6 +41,7 @@
 		if (navigator.mediaSession && navigator.mediaSession.coordinator && navigator.mediaSession.coordinator.state == 'joined') {
 			console.log('safari play');
 			navigator.mediaSession.coordinator.pause();
+			$(this).stopPropagation();
 			// let playbackstate =  player.paused()?'paused':'playing';
 			// navigator.mediaSession.playbackState = playbackstate;
 		}
