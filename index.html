@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+	<script src="jquery-3.min.js"></script>
 </head>
 <body>
 <video
@@ -23,27 +24,45 @@
 </video>
 
 <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+<script src="./jquery-3.min.js"></script>
 <script>
 	var player = videojs('my-video', {autoplay: 'any'});
-	
-	player.on('play',()=>{
-		if (navigator.mediaSession && navigator.mediaSession.coordinator){
+
+	$('.vhs-paused').onclick(() => {
+		if (navigator.mediaSession && navigator.mediaSession.coordinator && navigator.mediaSession.coordinator.state == 'joined') {
 			console.log('safari play');
 			navigator.mediaSession.coordinator.play();
 			// let playbackstate =  player.paused()?'paused':'playing';
 			// navigator.mediaSession.playbackState = playbackstate;
 		}
 	});
-	
-	player.on('pause',()=>{
-		if (navigator.mediaSession && navigator.mediaSession.coordinator){
-			console.log('safari pause')
+	$('.vjs-playing').onclick(() => {
+		if (navigator.mediaSession && navigator.mediaSession.coordinator && navigator.mediaSession.coordinator.state == 'joined') {
+			console.log('safari play');
 			navigator.mediaSession.coordinator.pause();
 			// let playbackstate =  player.paused()?'paused':'playing';
 			// navigator.mediaSession.playbackState = playbackstate;
 		}
 	});
 	
+	// player.on('play',()=>{
+	// 	if (navigator.mediaSession && navigator.mediaSession.coordinator){
+	// 		console.log('safari play');
+	// 		navigator.mediaSession.coordinator.play();
+	// 		// let playbackstate =  player.paused()?'paused':'playing';
+	// 		// navigator.mediaSession.playbackState = playbackstate;
+	// 	}
+	// });
+	
+	// player.on('pause',()=>{
+	// 	if (navigator.mediaSession && navigator.mediaSession.coordinator){
+	// 		console.log('safari pause')
+	// 		navigator.mediaSession.coordinator.pause();
+	// 		// let playbackstate =  player.paused()?'paused':'playing';
+	// 		// navigator.mediaSession.playbackState = playbackstate;
+	// 	}
+	// });
+	//
 	console.log(navigator.mediaSession.coordinator.state);
 
 	if (navigator.mediaSession) {
